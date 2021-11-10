@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import wx from 'weixin-js-sdk'
+import { wxsign } from '@/api'
 export default {
   name: 'App',
   data() {
@@ -17,7 +19,23 @@ export default {
     }
   },
   created() {
+    wxsign({
+    }).then((d) => {
+      // alert(JSON.stringify(d.data.data))
+      self.sign = d.data.data
+      console.log(self.sign)
+      sessionStorage.setItem('wxsignature', self.sign.signature)
+      wx.config({
+        debug: false, // 开启调试模式,
+        appId: 'wx3352249676449b29', // 必填，企业号的唯一标识，此处填写企业号corpid
+        timestamp: '1414587457', // 必填，生成签名的时间戳 self.sign.timestamp
+        nonceStr: 'syf', // 必填，生成签名的随机串 self.sign.noncestr
+        signature: self.sign.signature, // 必填，签名，见附录1
+        jsApiList: ['checkJsApi', 'getLocation', 'scanQRCode', 'openLocation', 'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'downloadVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+      })
+    }).catch((d) => {
 
+    })
   },
   mounted() {
     let moveDiv = document.querySelector('#pic')

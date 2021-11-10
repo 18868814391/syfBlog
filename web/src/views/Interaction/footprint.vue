@@ -68,7 +68,6 @@ export default {
     const self = this
     this.admin = getadmin()
     this.Thename = getThename()
-
     getFoot({
       start_page: self.start_page,
       pages: self.pages

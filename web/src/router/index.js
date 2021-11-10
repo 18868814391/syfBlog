@@ -105,6 +105,37 @@ const createRouter = () =>
         meta: {
           title: '涂鸦板', noAnima: true
         }
+      },
+      {
+        path: '/game1',
+        name: 'game1',
+        component: () => import('@/views/game/game1'),
+        meta: {
+          title: 'game1', noAnima: true, keepAlive: true
+        }
+      }, {
+        path: '/chatRoom',
+        name: 'chatRoom',
+        component: () => import('@/views/home/chatRoom'),
+        meta: {
+          title: '聊天室', noAnima: true
+        }
+      },
+      {
+        path: '/cocos',
+        name: 'cocos',
+        component: () => import('@/views/home/cocos'),
+        meta: {
+          title: 'coco游戏', noAnima: true
+        }
+      },
+      {
+        path: '/aboutMe',
+        name: 'aboutMe',
+        component: () => import('@/views/home/aboutMe'),
+        meta: {
+          title: '关于本站', noAnima: true
+        }
       }
     ]
   })
