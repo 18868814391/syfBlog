@@ -1,19 +1,14 @@
 <template>
   <div class="disappearBtn-page">
     <div class="divbtn cake" style="width:80px" @click="goRoute">
-      <div id="btn" style="width:80px" ref="doom">{{title}}</div>
+      <div id="btn" ref="doom" style="width:80px">{{ title }}</div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'disappearBtn',
-  data(){
-    return{
-
-    }
-  },
-  props:{
+  name: 'DisappearBtn',
+  props: {
     title: {
       type: String,
       default() {
@@ -25,24 +20,29 @@ export default {
       default() {
         return 'b'
       }
-    }, 
+    },
     idn: {
       type: String,
       default() {
         return ''
       }
-    }, 
-  },  
-  mounted(){
+    }
   },
-  methods:{
-    goRoute(){
-			if(this.rout=='b'){
-				return false;
-			}
-      this.$router.push({ path: `/${this.rout}` }); 
-    },
+  data() {
+    return {
+
+    }
   },
+  mounted() {
+  },
+  methods: {
+    goRoute() {
+      if (this.rout == 'b') {
+        return false
+      }
+      this.$router.push({ path: `/${this.rout}` })
+    }
+  }
 }
 </script>
 <style lang="less">
@@ -53,7 +53,7 @@ export default {
     line-height: 50px;
     border-radius:10px;
     background:rgba(44,193,254,1);
-    color: white; 
+    color: white;
 	}
 }
 </style>

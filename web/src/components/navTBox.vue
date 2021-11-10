@@ -1,13 +1,13 @@
 <template>
-  <div class="navTBox" :class="start?'navTBoxAnime1':''" @click="goroute" ref="nt1">
-    <div class="navTBox2" :class="start?'navTBoxAnime2':''" ref="nt2"></div>
-    {{taber}}
+  <div ref="nt1" class="navTBox" :class="start?'navTBoxAnime1':''" @click="goroute">
+    <div ref="nt2" class="navTBox2" :class="start?'navTBoxAnime2':''" />
+    {{ taber }}
   </div>
 </template>
 <script>
 export default {
-  name: 'navTBox',  
-  props:{
+  name: 'NavTBox',
+  props: {
     rout: {
       type: String,
       default() {
@@ -25,47 +25,47 @@ export default {
       default() {
         return 1
       }
-    }, 
+    },
     ind: {
       type: Number,
       default() {
         return 1
       }
-    }, 
-  },
-  data(){
-    return{
-      start:false,
-      end:true,
     }
   },
-  created(){
+  data() {
+    return {
+      start: false,
+      end: true
+    }
+  },
+  created() {
 
   },
-  mounted(){
-    const self=this;
-    let sum=this.sum;
-    let ind=this.ind;
-    setTimeout(()=>{
-      setInterval(()=>{
-    //     testDiv01.removeClass('transi');
-    // testDiv01.width(); // Apply change
-    // testDiv01.addClass('transi');
+  mounted() {
+    const self = this
+    let sum = this.sum
+    let ind = this.ind
+    setTimeout(() => {
+      setInterval(() => {
+        //     testDiv01.removeClass('transi');
+        // testDiv01.width(); // Apply change
+        // testDiv01.addClass('transi');
         // self.$refs.nt1.removeClass('navTBoxAnime1');
         // self.$refs.nt1.width();
         // self.$refs.nt1.addClass('navTBoxAnime1');
-        self.start=true;
-        setTimeout(()=>{
-         self.start=false; 
-        },500)
-      },sum*250)
-    },ind*125)
+        self.start = true
+        setTimeout(() => {
+          self.start = false
+        }, 500)
+      }, sum * 250)
+    }, ind * 125)
   },
-  methods:{
-    goroute(){
-      this.$router.push({ path: `/${this.rout}` }); 
-    },
-  },
+  methods: {
+    goroute() {
+      this.$router.push({ path: `/${this.rout}` })
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -104,7 +104,7 @@ export default {
     }
     50% {
         transform: translateY(20px) scale(1.1, 0.9);
-       
+
     }
     75% {
         ransform: translateY(10px) ;
@@ -112,7 +112,6 @@ export default {
     100% {
         transform: translateY(0) ;
     }
-  }  
+  }
 </style>
-
 

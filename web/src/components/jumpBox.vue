@@ -13,18 +13,18 @@
 </template>
 <script>
 export default {
-  name: 'jumpBox',
-  data(){
-    return{
+  name: 'JumpBox',
+  data() {
+    return {
 
     }
   },
-  mounted(){
-    
-  },
-  methods:{
+  mounted() {
 
   },
+  methods: {
+
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -40,10 +40,10 @@ export default {
       width: 1em;
       height: 1em;
       --duration: 1.5s;
-  }  
+  }
   .girl {
       animation: slide var(--duration) ease-in-out infinite alternate;
-  } 
+  }
   @keyframes slide {
       from {
           transform: translateX(0);
@@ -54,15 +54,15 @@ export default {
           transform: translatex(calc(8em - (1em * 1.25)));
           filter: brightness(1.45);
       }
-  }  
+  }
   .boys {
       width: 6em;
       display: flex;
       justify-content: space-between;
-  }  
+  }
   .boys span {
       animation: var(--duration) ease-in-out infinite alternate;
-  }  
+  }
   .boys span:nth-child(1) {
       animation-name: jump-off-1;
   }
@@ -77,7 +77,7 @@ export default {
 
   .boys span:nth-child(4) {
       animation-name: jump-off-4;
-  }  
+  }
   @keyframes jump-off-1 {
       0%, 15% {
           transform: rotate(0deg);
@@ -120,8 +120,8 @@ export default {
           transform-origin: -50% center;
           transform: rotate(-180deg);
       }
-  }  
-.container span::before {    
+  }
+.container span::before {
     content: '';
     position: absolute;
     width: inherit;
@@ -159,7 +159,7 @@ export default {
 .boys span:nth-child(4)::before {
     filter: brightness(1.45);
     animation-name: jump-down-4;
-}  
+}
 @keyframes jump-down-1 {
     5% {
         transform: scale(1, 1);

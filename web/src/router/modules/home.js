@@ -3,7 +3,6 @@
  */
 const home = {
   path: '/',
-  // redirect: '/login',
   meta: {
     cache: false,
     title: ''
