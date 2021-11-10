@@ -136,6 +136,14 @@ const createRouter = () =>
         meta: {
           title: '关于本站', noAnima: true
         }
+      },
+      {
+        path: '/myfile',
+        name: 'myfile',
+        component: () => import('@/views/home/myfile'),
+        meta: {
+          title: '文件夹', noAnima: true
+        }
       }
     ]
   })

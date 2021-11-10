@@ -38,8 +38,8 @@
       <br>
       <navTBox :taber="'novel'" :rout="'read'" :sum="7" :ind="4" />
       <br>
-      <navTBox :taber="'Music'" :rout="'music'" :sum="7" :ind="5" />
-      <br>
+      <!-- <navTBox :taber="'Music'" :rout="'music'" :sum="7" :ind="5" />
+      <br> -->
       <!-- <div @click="goMAD">MAD</div> -->
 
       <!-- <div @click="goAnime">Anime</div> -->
