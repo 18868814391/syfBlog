@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+		<title>syf的视频聊天</title>
+		<style type="text/css">
+			body{
+				margin-top: 15px;
+			}
+			video{
+				background-color: #000;
+				border: 1px solid gray;
+			}
+			.container{
+				position: relative;
+				display: block;
+				margin: 0 auto;
+				width: 100vw;
+				height:100vw;
+			}
+			#yours{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: 15px;
+				right: 15px;
+			}
+			#theirs{
+				width:100vw;
+				height: 100vw;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="login-page" class="page">
+			<h2>Login As</h2>
+			<input type="text" id="username" style="width:100%;" placeholder="输入你的识别码,例如193，ww，简单点就行"/>
+			<br>
+			<br>
+			<button id="login">登录</button>
+			<br><br><br>
+			<p style="text-align: center"><a href="https://www.shenyifan.top/#/index">去首页</a></p>
+			
+		</div>
+		<div id="call-page" class="page container">
+			<video id="yours" autoplay="autoplay"></video>
+			<video id="theirs" autoplay="autoplay"></video>
+			<input type="text" id="their-username" placeholder="输入对方的识别码" />
+			<button id="call">建立连接</button>&nbsp;&nbsp;&nbsp;
+			<button id="hang-up">挂断</button>
+			<div>目前只支持点对点连接，无法一对多</div>
+			<div>太久没人连接自动断开，请刷新重进</div>
+			<div>电脑支持chrome浏览器，手机支持微信浏览器</div>
+			<div>我的乞丐服务器就0.1M带宽，不清楚能支撑几对连接</div>
+			<div>娱乐项目，穷人的服务器都是按流量计费的，就不要跃跃欲试的来帮我测试并发</div>
+			<div>我的识别码是syf，随缘。。。</div>
+			<p style="text-align: center"><a href="https://www.shenyifan.top/#/index">去首页</a></p>
+		</div>
+		<script type="text/javascript" src="client.js"></script>
+	</body>
+</html>

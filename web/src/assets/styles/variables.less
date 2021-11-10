@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+@blue: #3ebfc7;
+@panGreen: #50cafa;
+@red: #f54c4c;
+@yellow: #eb7347;
+@light-blue: #3a71a8;
+@light-purple: #f0f1ff;
+@base-black: #3c4454;
+@violet: #6a76dd;
+@menuBg: #199eac;
+@primary: #3ebfc7;
+@black: #333333;
+@gray-title: #afafaf;
+
+@color-primary: #6a76dd;
+@color-blue: #4fc9fa;
+@color-pink: #ff89a5;
+@color-yellow: #f7b500;
+@color-light-yellow: #ffb32d;
+@color-subPurple: #9388ff;
+@color-e: #eee;
+@color-0: #000;
+@color-3: #333;
+@color-6: #666;
+@color-9: #999;
+@color-c: #ccc;
+@color-d6: #D6D6D6;
+@color-e7: #E7E7E7;
+@color-f: #fff;
+@color-f2: #F2F2F2;
+@color-mainText: #4c4e64;
+@color-subText: #7e8095;
+@color-lightPurple: #a3aef0;
+@color-placeholder: #808194;
+@color-line: #dadde8;
+@color-lightBlue: #87e6fd;
+
+//单行文本溢出显示省略号,参数：宽度、框类型
+.ellipse(@width: 100%, @display: block) {
+  width: @width;
+  display: @display;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+//多行文本溢出显示省略号，参数：行数
+.showLine(@rows: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @rows;
+}
+
+//弹性盒子垂直居中两端对齐
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+//弹性盒子水平垂直居中
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//弹性盒子水平居中
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+}
+
+//弹性盒子水平两端对齐
+.flex-row-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+// 弹性盒子垂直居中
+.flex-column-center {
+  display: flex;
+  align-items: center;
+}
+
+// 按钮样式
+.main-btn {
+  border-radius: 49px;
+  background: linear-gradient(
+    180deg,
+    @color-lightPurple 0%,
+    @color-primary 100%
+  );
+  box-shadow: 0 20px 20px 0 rgba(207, 248, 253, 0.6);
+  color: @color-f;
+  font-weight: normal;
+}
+
+.dialog-show {
+  animation: scaleInUp 0.35s ease-in both;
+}

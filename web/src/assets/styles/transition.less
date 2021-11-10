@@ -1,0 +1,74 @@
+// global transition css
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .3s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.list-enter-active, .list-leave-active { transition: all 1s; } .list-enter, .list-leave-to { opacity: 0; transform: translateY(30px); }
+
+//
+////margin
+//@for $i from 0 through 100 {
+//  .m#{$i} {
+//    margin: $i+px !important;
+//  }
+//  .mt#{$i} {
+//    margin-top: $i+px !important;
+//  }
+//  .ml#{$i} {
+//    margin-left: $i+px !important;
+//  }
+//  .mr#{$i} {
+//    margin-right: $i+px !important;
+//  }
+//  .mb#{$i} {
+//    margin-bottom: $i+px !important;
+//  }
+//}
+////padding
+//@for $i from 0 through 150 {
+//  .p#{$i} {
+//    padding: $i+px !important;
+//  }
+//  .pt#{$i} {
+//    padding-top: $i+px !important;
+//  }
+//  .pl#{$i} {
+//    padding-left: $i+px !important;
+//  }
+//  .pr#{$i} {
+//    padding-right: $i+px !important;
+//  }
+//  .pb#{$i} {
+//    padding-bottom: $i+px !important;
+//  }
+//}
+////font-size
+//@for $i from 10 through 34 {
+//  .fs#{$i} {
+//    font-size: $i+px !important;
+//  }
+//}

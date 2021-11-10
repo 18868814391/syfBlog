@@ -1,0 +1,314 @@
+<template>
+  <div class="indexPage">
+  <div class="index-item">
+    <div class="liuyanban liuyanpos1">
+      <disappearBtn :title="'留言板'" :rout="'footprint'" :idn="'id1'"></disappearBtn>
+    </div>
+    <div class="liuyanban liuyanpos2">
+      <disappearBtn :title="'聊天室'" :rout="'chatRoom'" :idn="'id2'"></disappearBtn>  
+    </div>
+    <div class="liuyanban liuyanpos3">
+      <disappearBtn :title="'涂鸦板'" :rout="'boobBrand'" :idn="'id3'"></disappearBtn>  
+    </div>
+    <div class="liuyanban liuyanpos4">
+      <disappearBtn :title="'1024'" :rout="'game1'" :idn="'id4'"></disappearBtn>  
+    </div>
+    <div class="liuyanban liuyanpos5" @click="sweep()">
+      <disappearBtn :title="'扫一扫'" :idn="'id5'"></disappearBtn>  
+    </div>
+    <div class="liuyanban liuyanpos6" @click="goLive()">
+      <disappearBtn :title="'视频聊天'" :idn="'id6'"></disappearBtn>  
+    </div>
+    <div class="liuyanban liuyanpos7" @click="goCoco()">
+      <disappearBtn :title="'cocos'" :idn="'id7'"></disappearBtn>  
+    </div>
+    <br/>
+    <navTBox :taber='"syf笔记"' :rout="'blog'" :sum='7' :ind='1'></navTBox>
+    <br>
+    <navTBox :taber='"blog upload"' :rout="'blogUpload'" :sum='7' :ind='2'></navTBox>
+    <br>
+    <navTBox :taber='"novel"' :rout="'read'" :sum='7' :ind='4'></navTBox>
+    <br>
+    <navTBox :taber='"Music"' :rout="'music'" :sum='7' :ind='5'></navTBox>
+       <br>
+    <!-- <div @click="goMAD">MAD</div> -->
+  
+    <!-- <div @click="goAnime">Anime</div> -->
+
+    <!-- <div @click="goUpload">上传页面</div> -->
+    <navTBox :taber='"文件夹"' :rout="'myfile'" :sum='7' :ind='6'></navTBox>
+    <br/>
+    <!-- <div @click="gofootprint">留言板</div> -->
+    <navTBox :taber='"关于本站"' :rout="'aboutMe'" :sum='7' :ind='7'></navTBox>
+   </div>
+       <div style="textAlign:center;marginTop:40px;">
+          <a href="http://www.beian.miit.gov.cn/">浙ICP备19028592号</a>
+        </div>  
+
+        
+    		<div style="width:300px;margin:0 auto; padding:20px 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402003945" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="@/assets/img/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402003945号</p></a>
+		 	</div>
+  </div>
+</template>
+<script>
+import { Toast} from 'vant';
+import { getThename,getadmin} from '@/libs/utils.js'
+import jumpBox from '@/components/jumpBox.vue'
+import navTBox from '@/components/navTBox.vue'
+import disappearBtn from '@/components/disappearBtn.vue'
+import wx from 'weixin-js-sdk';
+export default {
+  components: {
+    [Toast.name]: Toast, 
+    [jumpBox.name]: jumpBox,
+    [navTBox.name]: navTBox,
+    [disappearBtn.name]: disappearBtn,
+  },   
+  data(){
+    return{
+      sign:'',//微信签名相关
+      admin:getadmin(),
+      Thename:getThename(), 
+      position: { x: 0, y: 0 },
+      nx: '', ny: '', dx: '', dy: '', xPum: '', yPum: '',x:'',y:'',  
+      signature:'',          
+    }
+  },
+  created(){
+
+  },
+  mounted(){
+    // const self=this;
+    // setTimeout(function(){
+    // self.signature=sessionStorage.getItem('wxsignature');
+    // if(self.signature){
+    //   wx.config({
+    //     debug: false, // 开启调试模式,
+    //     appId: 'wx3352249676449b29', // 必填，企业号的唯一标识，此处填写企业号corpid
+    //     timestamp:'1414587457', // 必填，生成签名的时间戳 self.sign.timestamp
+    //     nonceStr:'syf', // 必填，生成签名的随机串 self.sign.noncestr
+    //     signature:self.signature,// 必填，签名，见附录1
+    //     jsApiList: ['checkJsApi','getLocation','scanQRCode','openLocation','startRecord','stopRecord','onVoiceRecordEnd','playVoice','pauseVoice','stopVoice','onVoicePlayEnd','uploadVoice','downloadVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    //   }); 
+    // }
+ 
+    // },1000)
+  },
+  methods:{
+    goUpload(){
+      this.$router.push({ path: '/upLoad' }); 
+    },
+    goRead(){
+      this.$router.push({ path: '/read' }); 
+    },
+    goCommon(){
+      this.$router.push({ path: '/myfile' });
+    },
+    goBlogUpload(){
+      this.$router.push({ path: '/blogUpload' });
+    },
+    goBlog(){
+      this.$router.push({ path: '/blog' });
+    },
+    goIM(){
+      this.$router.push({ path: '/session' });
+    },
+    goMap(){
+      this.$router.push({ path: '/map' });      
+    },
+    goMusic(){
+      this.$router.push({ path: '/music' });      
+    },
+    goMAD(){
+      this.$router.push({ path: '/mad' });      
+    },
+    goAnime(){
+      this.$router.push({ path: '/anime' });       
+    },
+    goCoco(){
+      this.$router.push({ path: '/cocos' });      
+    },
+    gofootprint(){
+      this.$router.push({ path: '/footprint' });       
+    },
+    aboutMe(){
+      this.$router.push({ path: '/aboutMe' });          
+    },
+    gochatRoom(){
+      this.$router.push({ path: '/chatRoom' });   
+    },
+    sweep() {
+      const self=this;
+      return new Promise((resolve, reject) => {
+        wx.ready(function() {
+          wx.scanQRCode({
+            needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+            scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+            success: function(res) {
+
+            }
+          })
+        })
+        resolve()
+      })    
+    },
+    goLive(){
+      window.location.href='https://www.shenyifan.top/live/'
+    },    
+  }
+}
+</script>
+<style lang="less">
+.live2d-widget-container{
+  pointer-events: auto!important;
+  z-index: 100!important;
+}
+.indexPage{
+  width:100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  canvas {
+    background-color:#020;
+  }
+  .liuyanban{
+    canvas {
+      background-color:transparent;
+    }        
+  }
+  .index-item{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    // padding-bottom:100px;
+
+  }
+  .liuyanban{
+    img{
+      width: 100px;
+      position: absolute;
+      top:0;
+      left: 0;
+    }
+    .liuyanban-t{
+      text-align: center;
+      margin-top:40px; 
+      position: relative;
+      z-index: 10;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  .liuyanpos1{
+    margin-top:5px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    left:10px;
+    height: 75px;
+  }
+  .liuyanpos6{
+    margin-top:100px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    height: 75px;    
+  }
+  .liuyanpos7{
+    margin-top:190px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    height: 75px;    
+  }  
+  .liuyanpos2{
+    margin-top:5px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    height: 75px;    
+  }
+  .liuyanpos3{
+    margin-top:100px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    left:10px;
+    height: 75px;    
+  }
+  .liuyanpos4{
+    margin-top:190px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    left:10px;
+    height: 75px;    
+  }
+  .liuyanpos5{
+    margin-top:280px; 
+    width: 80px;
+    position: absolute;
+    top:0px;
+    left:10px;
+    height: 75px;      
+  }
+  .jumpBox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  .textBox::before{
+    content: '';
+    height: 8px; width:100%; background: #000; opacity: .2; border-radius: 50%;
+    position: absolute;
+    top:60px;
+    // animation: shadow .5s linear infinite;
+  }
+  .textBox{
+    border-radius: 5px;
+    background: #fff;
+    // animation: rotate .5s linear infinite;
+    position: relative;
+    min-width: 50px;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+  }
+  @keyframes shadow {
+    0%, 100% {transform: scaleX(1);}
+    50% {transform: scaleX(1.2);}
+  }
+
+  @keyframes rotate {
+    0% {
+    transform: translateY(0) ;
+  }
+    25% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(20px) scale(1.1, 0.9);
+       
+    }
+    75% {
+        ransform: translateY(10px) ;
+    }
+    100% {
+        transform: translateY(0) ;
+    }
+  }
+  .bottom-govBox{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }  
+}
+</style>
+
+
