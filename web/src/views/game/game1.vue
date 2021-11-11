@@ -7,12 +7,12 @@
     </header>
     <div class="all-container">
       <div class="background">
-        <span v-for="list in 16" />
+        <span v-for="(list,index) in 16" :key="index" />
       </div>
       <div class="container">
         <span
           v-for="(e,index) in rocks"
-          v-if="e"
+          v-show="e"
           :key="index"
           class="list"
           :style="`
@@ -67,27 +67,15 @@ export default {
   mounted() {
     window.app = this
     this.init()
-    document.addEventListener('keydown', e => {
-      switch (e.key.toLocaleUpperCase()) {
-        case 'ARROWRIGHT':
-        case 'D':
-          this.turn('right')
-          break
-        case 'ARROWLEFT':
-        case 'A':
-          this.turn('left')
-          break
-        case 'ARROWDOWN':
-        case 'S':
-          this.turn('down')
-          break
-        case 'ARROWUP':
-        case 'W':
-          this.turn('up')
-          break
-      }
-    })
-    document.addEventListener('touchstart', (start) => {
+    document.addEventListener('keydown', this.arrowMove)
+    document.addEventListener('touchstart', this.fingerMove)
+  },
+  destroyed() {
+    document.removeEventListener('touchstart', this.fingerMove, true)
+    document.removeEventListener('keydown', this.arrowMove, true)
+  },
+  methods: {
+    fingerMove(start) {
       const moveFunc = (move) => {
         move && move.preventDefault()
         const dx = move.touches[0].clientX - start.touches[0].clientX
@@ -110,9 +98,27 @@ export default {
       document.addEventListener('touchend', () => {
         document.removeEventListener('touchmove', moveFunc)
       })
-    })
-  },
-  methods: {
+    },
+    arrowMove(e) {
+      switch (e.key.toLocaleUpperCase()) {
+        case 'ARROWRIGHT':
+        case 'D':
+          this.turn('right')
+          break
+        case 'ARROWLEFT':
+        case 'A':
+          this.turn('left')
+          break
+        case 'ARROWDOWN':
+        case 'S':
+          this.turn('down')
+          break
+        case 'ARROWUP':
+        case 'W':
+          this.turn('up')
+          break
+      }
+    },
     isMobile() {
       return window.navigator.userAgent.match(/Mobile/)
     },
@@ -306,14 +312,16 @@ export default {
        */
     mergeNumericBlockAddStyle(next) {
       const nextDom = document.querySelector(`#r${next.id}`)
-      nextDom.animate([
-        { transform: 'scale(0.95)' },
-        { transform: 'scale(1.3)' },
-        { transform: 'scale(1.03)' },
-        { transform: 'scale(1)' }
-      ], {
-        duration: 200
-      })
+      if (nextDom && nextDom.animate) {
+        nextDom.animate([
+          { transform: 'scale(0.95)' },
+          { transform: 'scale(1.3)' },
+          { transform: 'scale(1.03)' },
+          { transform: 'scale(1)' }
+        ], {
+          duration: 200
+        })
+      }
     },
     // 处理移动距离的函数
     calcAxis({ e, direct }) {

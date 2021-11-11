@@ -84,6 +84,6 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: 'https://www.shenyifan.top/apis/syf/php'
+    proxy: 'https://www.shenyifan.top/apis/php'
   }
 }
