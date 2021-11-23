@@ -31,6 +31,9 @@
       <div class="liuyanban liuyanpos7" @click="goCoco()">
         <disappearBtn :title="'cocos'" :idn="'id7'" />
       </div>
+      <div class="liuyanban liuyanpos8" @click="goThree()">
+        <disappearBtn :title="'threeJs'" :idn="'id8'" />
+      </div>
       <br>
       <navTBox :taber="'syf笔记'" :rout="'blog'" :sum="7" :ind="1" />
       <br>
@@ -157,6 +160,9 @@ export default {
     gochatRoom() {
       this.$router.push({ path: '/chatRoom' })
     },
+    goThree() {
+      window.location.href = 'https://www.shenyifan.top/threeJs/#/'
+    },
     sweep() {
       return new Promise((resolve, reject) => {
         wx.ready(function() {
@@ -240,6 +246,14 @@ export default {
   }
   .liuyanpos7{
     margin-top:190px;
+    width: 80px;
+    position: absolute;
+    top:0px;
+    right:10px;
+    height: 75px;
+  }
+  .liuyanpos8{
+    margin-top:280px;
     width: 80px;
     position: absolute;
     top:0px;
