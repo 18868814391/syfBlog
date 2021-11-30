@@ -29,14 +29,10 @@ export default {
 
     }).then((d) => {
       self.con = d.data.data
-      console.log('mircle', self.con)
       Object.keys(self.con).forEach(function(key) {
-        console.log(key, self.con[key])
         self.titleData.push(key)
         self.conData.push(self.con[key])
       })
-      console.log(self.titleData)
-      console.log(self.conData)
     }).catch(() => {
 
     }).finally(() => {

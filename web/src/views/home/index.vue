@@ -57,7 +57,7 @@
       <a href="http://www.beian.miit.gov.cn/">浙ICP备19028592号</a>
     </div>
 
-    <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <div style="padding:20px 0;">
       <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402003945" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="@/assets/img/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402003945号</p></a>
     </div>
   </div>
@@ -186,14 +186,13 @@ export default {
 }
 </script>
 <style lang="less">
-.live2d-widget-container{
-  pointer-events: auto!important;
-  z-index: 100!important;
-}
 .indexPage{
   width:100%;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
   .app-head{
     width: 100%;
     height: 50px;
@@ -206,20 +205,13 @@ export default {
     color: white;
   }
   .index-item{
+    width: 100%;
     display:flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    // padding-bottom:100px;
-
   }
   .liuyanban{
-    img{
-      width: 100px;
-      position: absolute;
-      top:0;
-      left: 0;
-    }
     .liuyanban-t{
       text-align: center;
       margin-top:40px;

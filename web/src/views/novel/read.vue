@@ -41,7 +41,6 @@ export default {
 
     }).then((d) => {
       self.list = d.data.data
-      console.log(self.list)
     }).catch(() => {
 
     }).finally(() => {
@@ -63,11 +62,11 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   .novelItem{
     width: 100px;
     font-size: 12px;
     margin-top:15px;
+    margin-left: 5vw;
     img{
       width: 100px;
       height:150px;

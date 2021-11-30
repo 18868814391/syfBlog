@@ -43,23 +43,23 @@ export default {
 
   },
   mounted() {
-    const self = this
-    let sum = this.sum
-    let ind = this.ind
-    setTimeout(() => {
-      setInterval(() => {
-        //     testDiv01.removeClass('transi');
-        // testDiv01.width(); // Apply change
-        // testDiv01.addClass('transi');
-        // self.$refs.nt1.removeClass('navTBoxAnime1');
-        // self.$refs.nt1.width();
-        // self.$refs.nt1.addClass('navTBoxAnime1');
-        self.start = true
-        setTimeout(() => {
-          self.start = false
-        }, 500)
-      }, sum * 250)
-    }, ind * 125)
+    // const self = this
+    // let sum = this.sum
+    // let ind = this.ind
+    // setTimeout(() => {
+    //   setInterval(() => {
+    //     //     testDiv01.removeClass('transi');
+    //     // testDiv01.width(); // Apply change
+    //     // testDiv01.addClass('transi');
+    //     // self.$refs.nt1.removeClass('navTBoxAnime1');
+    //     // self.$refs.nt1.width();
+    //     // self.$refs.nt1.addClass('navTBoxAnime1');
+    //     self.start = true
+    //     setTimeout(() => {
+    //       self.start = false
+    //     }, 500)
+    //   }, sum * 250)
+    // }, ind * 125)
   },
   methods: {
     goroute() {

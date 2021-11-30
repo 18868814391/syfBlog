@@ -70,6 +70,7 @@ export default {
     document.addEventListener('keydown', this.arrowMove)
     document.addEventListener('touchstart', this.fingerMove)
   },
+
   destroyed() {
     document.removeEventListener('touchstart', this.fingerMove, true)
     document.removeEventListener('keydown', this.arrowMove, true)
@@ -77,7 +78,7 @@ export default {
   methods: {
     fingerMove(start) {
       const moveFunc = (move) => {
-        move && move.preventDefault()
+        // move && move.preventDefault()
         const dx = move.touches[0].clientX - start.touches[0].clientX
         const dy = move.touches[0].clientY - start.touches[0].clientY
         if (dx > this.directX) {
@@ -363,12 +364,12 @@ export default {
     margin-bottom: -27%;
   }
   body {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    // overflow: auto;
+    // -webkit-overflow-scrolling: touch;
   }
   .layout {
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    // -webkit-overflow-scrolling: touch;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -431,12 +432,12 @@ export default {
         position: absolute;
         justify-content: flex-start;
         align-items: flex-start;
-        -webkit-touch-callout: none;
-        -ms-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -ms-touch-action: none;
+        // -webkit-touch-callout: none;
+        // -ms-touch-callout: none;
+        // -webkit-user-select: none;
+        // -moz-user-select: none;
+        // -ms-user-select: none;
+        // -ms-touch-action: none;
         touch-action: none;
         .list {
           margin: 10px;
@@ -466,7 +467,7 @@ export default {
   }
   @media screen and (max-width: 900px) {
     html,body{
-      overflow: hidden;
+      // overflow: hidden;
     }
     .layout{
       overflow: hidden;
