@@ -56,14 +56,16 @@
     <div style="textAlign:center;marginTop:40px;">
       <a href="http://www.beian.miit.gov.cn/">浙ICP备19028592号</a>
     </div>
-
+    <van-popup v-model="showPop">
+      <div class="pop" @click="closePop()">{{ sweepStr }}</div>
+    </van-popup>
     <div style="padding:20px 0;">
       <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402003945" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="@/assets/img/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402003945号</p></a>
     </div>
   </div>
 </template>
 <script>
-import { Toast } from 'vant'
+import { Toast, Popup } from 'vant'
 import { getThename, getadmin } from '@/libs/utils.js'
 import jumpBox from '@/components/jumpBox.vue'
 import navTBox from '@/components/navTBox.vue'
@@ -73,6 +75,7 @@ import Cookies from 'js-cookie'
 export default {
   components: {
     [Toast.name]: Toast,
+    [Popup.name]: Popup,
     [jumpBox.name]: jumpBox,
     [navTBox.name]: navTBox,
     [disappearBtn.name]: disappearBtn
@@ -84,7 +87,9 @@ export default {
       Thename: getThename(),
       position: { x: 0, y: 0 },
       nx: '', ny: '', dx: '', dy: '', xPum: '', yPum: '', x: '', y: '',
-      signature: ''
+      signature: '',
+      showPop: false,
+      sweepStr: ''
     }
   },
   created() {
@@ -164,6 +169,7 @@ export default {
       window.location.href = 'https://www.shenyifan.top/threeJs/#/'
     },
     sweep() {
+      const self = this
       return new Promise((resolve, reject) => {
         wx.ready(function() {
           wx.scanQRCode({
@@ -172,12 +178,16 @@ export default {
             success: function(res) {
               console.log(res.resultStr)
               var result = res.resultStr
-              alert(result)
+              self.sweepStr = result
+              self.showPop = true
             }
           })
         })
         resolve()
       })
+    },
+    closePop() {
+      this.showPop = false
     },
     goLive() {
       window.location.href = 'https://www.shenyifan.top/live/'
@@ -336,6 +346,9 @@ export default {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .pop{
+    padding: 10px;
   }
 }
 </style>
