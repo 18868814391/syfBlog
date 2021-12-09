@@ -349,6 +349,8 @@ export default {
   }
   .pop{
     padding: 10px;
+    width: 80vw;
+    word-break: break-all;
   }
 }
 </style>
