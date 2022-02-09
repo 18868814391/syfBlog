@@ -35,11 +35,11 @@
         <disappearBtn :title="'threeJs'" :idn="'id8'" />
       </div>
       <br>
-      <navTBox :taber="'syf笔记'" :rout="'blog'" :sum="7" :ind="1" />
+      <navTBox :taber="'工作笔记'" :rout="'blog'" :sum="7" :ind="1" />
       <br>
-      <navTBox :taber="'blog upload'" :rout="'blogUpload'" :sum="7" :ind="2" />
+      <navTBox :taber="'笔记上传'" :rout="'blogUpload'" :sum="7" :ind="2" />
       <br>
-      <navTBox :taber="'novel'" :rout="'read'" :sum="7" :ind="4" />
+      <navTBox :taber="'小说'" :rout="'read'" :sum="7" :ind="4" />
       <br>
       <!-- <navTBox :taber="'Music'" :rout="'music'" :sum="7" :ind="5" />
       <br> -->
