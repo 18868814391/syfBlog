@@ -1,68 +1,75 @@
 <template>
-  <div class="indexPage">
-    <div v-if="!admin" class="app-head">
-      <div @click="goLogin">登陆</div>
-      <div @click="goRegister">注册</div>
+  <div class="boxCon">
+    <div class="leafs">
+      <canvas width="100vw" height="100vh" class="canvas" />
+      <img id="leaf" style="display:none" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgc3R5bGU9Imlzb2xhdGlvbjppc29sYXRlIiB2aWV3Qm94PSIwIDAgMjYgMTIiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMiI+PGRlZnM+PGNsaXBQYXRoIGlkPSJfY2xpcFBhdGhfRkN4bE4yZHJvS0JYTXlwQmZ2VnM3ejNpSGdlU3hGSngiPjxyZWN0IHdpZHRoPSIyNiIgaGVpZ2h0PSIxMiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNfY2xpcFBhdGhfRkN4bE4yZHJvS0JYTXlwQmZ2VnM3ejNpSGdlU3hGSngpIj48cGF0aCBkPSIgTSAxNC45OTIgMTEuNzExIEMgMTAuNDUgMTIuNDIyIDUuNDczIDEwLjk4MiAwLjA2MSA3LjM5IFEgMy45NzIgMS41MTUgMTEuNzAxIDAuMTQxIEMgMTUuODkzIC0wLjEyNiAyMC43ODQgMS40OTYgMjUuOTM5IDQuODczIFEgMjEuODQ5IDkuNjg4IDE0Ljk5MiAxMS43MTEgWiAiIGZpbGw9InJnYigyMjIsODgsNTEpIi8+PC9nPjwvc3ZnPg==">
     </div>
-    <div v-else class="app-head" style="fontSize:14px;">
-      欢迎你啊！{{ Thename }}
-      <span style="fontSize:12px;" @click="logOut">退出</span>
-    </div>
+    <div class="indexPage">
+      <div v-if="!admin" class="app-head">
+        <div @click="goLogin">登陆</div>
+        <div @click="goRegister">注册</div>
+      </div>
+      <div v-else class="app-head" style="fontSize:14px;">
+        欢迎你啊！{{ Thename }}
+        <span style="fontSize:12px;" @click="logOut">退出</span>
+      </div>
 
-    <div class="index-item">
-      <div class="liuyanban liuyanpos1">
-        <disappearBtn :title="'留言板'" :rout="'footprint'" :idn="'id1'" />
-      </div>
-      <div class="liuyanban liuyanpos2">
-        <disappearBtn :title="'聊天室'" :rout="'chatRoom'" :idn="'id2'" />
-      </div>
-      <div class="liuyanban liuyanpos3">
-        <disappearBtn :title="'涂鸦板'" :rout="'boobBrand'" :idn="'id3'" />
-      </div>
-      <div class="liuyanban liuyanpos4">
-        <disappearBtn :title="'1024'" :rout="'game1'" :idn="'id4'" />
-      </div>
-      <div class="liuyanban liuyanpos5" @click="sweep()">
-        <disappearBtn :title="'扫一扫'" :idn="'id5'" />
-      </div>
-      <div class="liuyanban liuyanpos6" @click="goLive()">
-        <disappearBtn :title="'视频聊天'" :idn="'id6'" />
-      </div>
-      <div class="liuyanban liuyanpos7" @click="goCoco()">
-        <disappearBtn :title="'cocos'" :idn="'id7'" />
-      </div>
-      <div class="liuyanban liuyanpos8" @click="goThree()">
-        <disappearBtn :title="'threeJs'" :idn="'id8'" />
-      </div>
-      <br>
-      <navTBox :taber="'工作笔记'" :rout="'blog'" :sum="7" :ind="1" />
-      <br>
-      <navTBox :taber="'笔记上传'" :rout="'blogUpload'" :sum="7" :ind="2" />
-      <br>
-      <navTBox :taber="'小说'" :rout="'read'" :sum="7" :ind="4" />
-      <br>
-      <!-- <navTBox :taber="'Music'" :rout="'music'" :sum="7" :ind="5" />
-      <br> -->
-      <!-- <div @click="goMAD">MAD</div> -->
+      <div class="index-item">
+        <div class="liuyanban liuyanpos1">
+          <disappearBtn :title="'留言板'" :rout="'footprint'" :idn="'id1'" />
+        </div>
+        <div class="liuyanban liuyanpos2">
+          <disappearBtn :title="'聊天室'" :rout="'chatRoom'" :idn="'id2'" />
+        </div>
+        <div class="liuyanban liuyanpos3">
+          <disappearBtn :title="'涂鸦板'" :rout="'boobBrand'" :idn="'id3'" />
+        </div>
+        <div class="liuyanban liuyanpos4">
+          <disappearBtn :title="'1024'" :rout="'game1'" :idn="'id4'" />
+        </div>
+        <div class="liuyanban liuyanpos5" @click="sweep()">
+          <disappearBtn :title="'扫一扫'" :idn="'id5'" />
+        </div>
+        <div class="liuyanban liuyanpos6" @click="goLive()">
+          <disappearBtn :title="'视频聊天'" :idn="'id6'" />
+        </div>
+        <div class="liuyanban liuyanpos7" @click="goCoco()">
+          <disappearBtn :title="'cocos'" :idn="'id7'" />
+        </div>
+        <div class="liuyanban liuyanpos8" @click="goThree()">
+          <disappearBtn :title="'threeJs'" :idn="'id8'" />
+        </div>
+        <br>
+        <navTBox :taber="'工作笔记'" :rout="'blog'" :sum="7" :ind="1" />
+        <br>
+        <navTBox :taber="'笔记上传'" :rout="'blogUpload'" :sum="7" :ind="2" />
+        <br>
+        <navTBox :taber="'小说'" :rout="'read'" :sum="7" :ind="4" />
+        <br>
+        <!-- <navTBox :taber="'Music'" :rout="'music'" :sum="7" :ind="5" />
+        <br> -->
+        <!-- <div @click="goMAD">MAD</div> -->
 
-      <!-- <div @click="goAnime">Anime</div> -->
+        <!-- <div @click="goAnime">Anime</div> -->
 
-      <!-- <div @click="goUpload">上传页面</div> -->
-      <navTBox :taber="'文件夹'" :rout="'myfile'" :sum="7" :ind="6" />
-      <br>
-      <!-- <div @click="gofootprint">留言板</div> -->
-      <navTBox :taber="'关于本站'" :rout="'aboutMe'" :sum="7" :ind="7" />
-    </div>
-    <div style="textAlign:center;marginTop:40px;">
-      <a href="http://www.beian.miit.gov.cn/">浙ICP备19028592号</a>
-    </div>
-    <van-popup v-model="showPop">
-      <div class="pop" @click="closePop()">{{ sweepStr }}</div>
-    </van-popup>
-    <div style="padding:20px 0;">
-      <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402003945" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="@/assets/img/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402003945号</p></a>
+        <!-- <div @click="goUpload">上传页面</div> -->
+        <navTBox :taber="'文件夹'" :rout="'myfile'" :sum="7" :ind="6" />
+        <br>
+        <!-- <div @click="gofootprint">留言板</div> -->
+        <navTBox :taber="'关于本站'" :rout="'aboutMe'" :sum="7" :ind="7" />
+      </div>
+      <div style="textAlign:center;marginTop:40px;">
+        <a href="http://www.beian.miit.gov.cn/">浙ICP备19028592号</a>
+      </div>
+      <van-popup v-model="showPop">
+        <div class="pop" @click="closePop()">{{ sweepStr }}</div>
+      </van-popup>
+      <div style="padding:20px 0;">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010402003945" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="@/assets/img/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010402003945号</p></a>
+      </div>
     </div>
   </div>
+
 </template>
 <script>
 import { Toast, Popup } from 'vant'
@@ -92,10 +99,12 @@ export default {
       sweepStr: ''
     }
   },
-  created() {
-
-  },
   mounted() {
+    setTimeout(() => {
+      this.initfengye()
+      this.draw()
+    }, 105)
+
     const self = this
     setTimeout(function() {
       self.signature = sessionStorage.getItem('wxsignature')
@@ -191,12 +200,81 @@ export default {
     },
     goLive() {
       window.location.href = 'https://www.shenyifan.top/live/'
+    },
+    initfengye() {
+      let canvas = document.querySelector('canvas')
+      this.ctx = canvas.getContext('2d')
+      canvas.width = document.body.clientWidth
+      canvas.height = document.body.clientHeight
+      this.width = canvas.width
+      this.height = canvas.height
+      let centerX = canvas.width / 2
+      let centerY = canvas.height / 2
+      this.leaf = document.querySelector('#leaf')
+      this.leafs = []
+      let count = 15
+
+      for (let i = 0; i < count; i++) {
+        let angle = 15 + Math.random() * 45
+        let dir = [-1, 1][Math.floor(Math.random() * 2)]
+
+        this.leafs.push({
+          x: Math.random() * this.width,
+          y: Math.random() * this.height,
+          w: 30,
+          h: 30 * (this.leaf.height / this.leaf.width),
+          v: 20 / angle,
+          a: angle,
+          d: dir,
+          anim: true
+        })
+      }
+    },
+    update(dt) {
+      for (let i = 0; i < this.leafs.length; i++) {
+        if (this.leafs[i].anim) {
+          this.leafs[i].y += this.leafs[i].v
+          if (this.leafs[i].y > this.height) {
+            this.leafs[i].y = -120
+            this.leafs[i].x = Math.random() * this.width
+          }
+        }
+      }
+    },
+    draw(dt) {
+      requestAnimationFrame(this.draw)
+      this.update(dt)
+      this.ctx.clearRect(0, 0, this.width, this.height)
+      for (let i = 0; i < this.leafs.length; i++) {
+        this.ctx.save()
+        if (this.leafs[i].anim) {
+          this.ctx.translate(this.leafs[i].x, this.leafs[i].y)
+          this.ctx.rotate(
+            this.leafs[i].d * Math.sin(dt * 0.002 * i * 0.01) * (this.leafs[i].a) * Math.PI / 180
+          )
+        }
+        this.ctx.globalAlpha = Math.max(0, this.leafs[i].y * 0.1)
+        this.ctx.drawImage(this.leaf, -this.leafs[i].w / 2, 70, this.leafs[i].w, this.leafs[i].h)
+        this.ctx.restore()
+      }
     }
   }
 }
 </script>
 <style lang="less">
+.boxCon{
+  width: 100%;
+  position: relative;
+  .leafs{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
 .indexPage{
+  position: relative;
+  z-index: 10;
   width:100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -206,7 +284,7 @@ export default {
   .app-head{
     width: 100%;
     height: 50px;
-    background-image: linear-gradient( 135deg, rgb(49,76,172) 10%, rgb(242,159,191) 100%);
+    background-image: linear-gradient(to right, #ff6034, #ee0a24);
     display: flex;
     align-items: center;
     justify-content: space-around;

@@ -49,8 +49,8 @@ export default {
 .disappearBtn-page{
   #btn{
     text-align: center;
-    height: 50px;
-    line-height: 50px;
+    height: 45px;
+    line-height: 45px;
     border-radius:10px;
     background:rgba(44,193,254,1);
     color: white;

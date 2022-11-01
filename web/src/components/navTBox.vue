@@ -1,8 +1,8 @@
 <template>
   <div ref="nt1" class="navTBox" :class="start?'navTBoxAnime1':''" @click="goroute">
-    <div ref="nt2" class="navTBox2" :class="start?'navTBoxAnime2':''" />
-    {{ taber }}
+    <van-button plain type="primary">{{ taber }}</van-button>
   </div>
+
 </template>
 <script>
 export default {
@@ -69,49 +69,14 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  .navTBox2{
-    height: 8px; width:100%; background: #000; opacity: .2; border-radius: 50%;
-    position: absolute;
-    top:60px;
-  }
   .navTBox{
-    border-radius: 5px;
-    background: white;
     position: relative;
-    min-width: 50px;
-    height:50px;
-    text-align: center;
-    line-height: 50px;
-    padding: 0 5px;
   }
   .navTBoxAnime1{
     animation: rotate .5s linear infinite;
   }
   .navTBoxAnime2{
     animation: shadow .5s linear infinite;
-  }
-  @keyframes shadow {
-    0%, 100% {transform: scaleX(1);}
-    50% {transform: scaleX(1.2);}
-  }
-
-  @keyframes rotate {
-    0% {
-    transform: translateY(0) ;
-  }
-    25% {
-        transform: translateY(10px);
-    }
-    50% {
-        transform: translateY(20px) scale(1.1, 0.9);
-
-    }
-    75% {
-        ransform: translateY(10px) ;
-    }
-    100% {
-        transform: translateY(0) ;
-    }
   }
 </style>
 

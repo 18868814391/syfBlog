@@ -215,6 +215,7 @@ export default {
     line-height: 35px;
     color: #1D1E1F;
     margin-top:10px;
+    background: white;
     box-shadow: 0 2px 2px 2px rgba(49, 49, 49, 0.2);
   }
   .tabCon{
@@ -227,6 +228,7 @@ export default {
     align-items: center;
     .tabCon-item{
       color: rgb(102, 110, 184);
+      background: white;
       font-size: 12px;
       padding: 3px;
       border: 1px solid lightblue;

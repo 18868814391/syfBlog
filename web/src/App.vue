@@ -97,7 +97,7 @@ export default {
     text-align: center;
     line-height: 40px;
     box-sizing: border-box;
-    background-image: linear-gradient( 135deg, rgb(49,76,172) 10%, rgb(242,159,191) 100%);
+    background-image: linear-gradient(to right, #ff6034, #ee0a24);
     z-index: 999999;
     box-shadow: 0 2px 2px 2px rgba(49, 49, 49, 0.2);
     div {
